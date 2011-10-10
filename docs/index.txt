@@ -1,21 +1,39 @@
 pip
 ===
 
-pip is a tool for installing and managing Python packages, such as those
-found in the `Python Package Index <http://pypi.python.org/pypi>`_.
+.. pip is a tool for installing and managing Python packages, such as those
+.. found in the `Python Package Index <http://pypi.python.org/pypi>`_.
 
-pip is a replacement for `easy_install
-<http://peak.telecommunity.com/DevCenter/EasyInstall>`_.  It mostly
-uses the same techniques for finding packages, so packages that are
-easy_installable should be pip-installable as well.  This means that
-you can use ``pip install SomePackage`` instead of ``easy_install
-SomePackage``.
+pip は、 `Python Package Index <http://pypi.python.org/pypi>`_ などで見つかる
+Python パッケージをインストールしたり管理したりするためのツールです。
 
-In order to use pip, you must first install `setuptools
-<http://pypi.python.org/pypi/setuptools>`_ or `distribute
-<http://pypi.python.org/pypi/distribute>`_.  If you use `virtualenv
-<http://www.virtualenv.org>`_, a copy of pip will be automatically be
-installed in each virtual environment you create.
+
+.. pip is a replacement for `easy_install
+.. <http://peak.telecommunity.com/DevCenter/EasyInstall>`_.  It mostly
+.. uses the same techniques for finding packages, so packages that are
+.. easy_installable should be pip-installable as well.  This means that
+.. you can use ``pip install SomePackage`` instead of ``easy_install
+.. SomePackage``.
+
+pip は `easy_install <http://peak.telecommunity.com/DevCenter/EasyInstall>`_
+の replacement です。パッケージを見つけるのに使われている技術はほとんど
+同じなので、 easy_install 可能なパッケージは pip でもインストール可能で
+す。つまり、 ``easy_install SomePackage`` の代わりに ``pip install
+SomePackage`` を使用できるということです。
+
+
+.. In order to use pip, you must first install `setuptools
+.. <http://pypi.python.org/pypi/setuptools>`_ or `distribute
+.. <http://pypi.python.org/pypi/distribute>`_.  If you use `virtualenv
+.. <http://www.virtualenv.org>`_, a copy of pip will be automatically be
+.. installed in each virtual environment you create.
+
+pip を使用するために、最初に `setuptools
+<http://pypi.python.org/pypi/setuptools>`_ または `distribute
+<http://pypi.python.org/pypi/distribute>`_ をインストールしなければなり
+ません。 `virtualenv <http://www.virtualenv.org>`_ を使用している場合、
+作成する各仮想環境に pip のコピーが自動的にインストールされます。
+
 
 .. comment: split here
 
@@ -31,311 +49,711 @@ installed in each virtual environment you create.
 
 .. comment: split here
 
-Usage
------
 
-Once you have pip, you can use it like this::
+.. Usage
+.. -----
+
+使い方
+------
+
+
+.. Once you have pip, you can use it like this:
+
+pip が一旦インストールされると、次のようなコマンドが使えるようになります:
+
+
+::
 
     $ pip install SomePackage
 
-SomePackage is some package you'll find on `PyPI
-<http://pypi.python.org/pypi/>`_.  This installs the package and all
-its dependencies.
 
-pip does other stuff too, with packages, but install is the biggest
-one.  You can ``pip uninstall`` too.
+.. SomePackage is some package you'll find on `PyPI
+.. <http://pypi.python.org/pypi/>`_.  This installs the package and all
+.. its dependencies.
 
-You can also install from a URL (that points to a tar or zip file),
-install from some version control system (use URLs like
-``hg+http://domain/repo`` -- or prefix ``git+``, ``svn+`` etc).  pip
-knows a bunch of stuff about revisions and stuff, so if you need to do
-things like install a very specific revision from a repository pip can
-do that too.
+SomePackage は `PyPI <http://pypi.python.org/pypi/>`_ で見つかる
+何らかのパッケージです。これは指定されたパッケージとそのすべての依存
+パッケージをインストールします。
 
-If you've ever used ``python setup.py develop``, you can do something
-like that with ``pip install -e ./`` -- this works with packages that
-use ``distutils`` too (usually this only works with Setuptools
-projects).
 
-You can use ``pip install --upgrade SomePackage`` to upgrade to a
-newer version, or ``pip install SomePackage==1.0.4`` to install a very
-specific version.
+.. pip does other stuff too, with packages, but install is the biggest
+.. one.  You can ``pip uninstall`` too.
 
-Pip Compared To easy_install
+pip はパッケージに関して他のこともしますが、インストールはその中で最も
+大きなものです。 ``pip uninstall`` することもできます。
+
+
+.. You can also install from a URL (that points to a tar or zip file),
+.. install from some version control system (use URLs like
+.. ``hg+http://domain/repo`` -- or prefix ``git+``, ``svn+`` etc).  pip
+.. knows a bunch of stuff about revisions and stuff, so if you need to do
+.. things like install a very specific revision from a repository pip can
+.. do that too.
+
+また、 (tar か zip ファイルを指す) URL からインストールすることや、何ら
+かのバージョン管理システムからインストールすることができます
+(``hg+http://domain/repo`` のような URL を使用します -- プリフィックス
+は ``git+``, ``svn+`` などがあります)。 pip は revision と stuff に
+関して多くのことを知っているので、もしリポジトリから非常に特定のリビジョン
+をインストールするようなことをする必要があれば、 pip はそれも可能です。
+
+
+.. If you've ever used ``python setup.py develop``, you can do something
+.. like that with ``pip install -e ./`` -- this works with packages that
+.. use ``distutils`` too (usually this only works with Setuptools
+.. projects).
+
+これまでに ``python setup.py develop`` を使用したことがあるなら、それと
+同じようなことが ``pip install -e ./`` でできます -- これは
+``distutils`` を使用するパッケージでも動きます (通常、これは
+Setuptools プロジェクトでのみ動きます)。
+
+
+.. You can use ``pip install --upgrade SomePackage`` to upgrade to a
+.. newer version, or ``pip install SomePackage==1.0.4`` to install a very
+.. specific version.
+
+新しいバージョンにアップグレードするための ``pip install --upgrade
+SomePackage`` や、非常に特定のバージョンをインストールする ``pip
+install SomePackage==1.0.4`` も使用できます。
+
+
+
+.. Pip Compared To easy_install
+.. ----------------------------
+
+easy_install との比較
 ----------------------------
 
-pip is meant to improve on easy_install.  Some of the improvements:
+.. pip is meant to improve on easy_install.  Some of the improvements:
 
-* All packages are downloaded before installation.  Partially-completed
-  installation doesn't occur as a result.
+pip は easy_install に対する改良を意図しています。いくつかの改良点:
 
-* Care is taken to present useful output on the console.
 
-* The reasons for actions are kept track of.  For instance, if a package is
-  being installed, pip keeps track of why that package was required.
+.. * All packages are downloaded before installation.  Partially-completed
+..   installation doesn't occur as a result.
 
-* Error messages should be useful.
+* すべてのパッケージをインストールの前にダウンロードします。その結果、
+  部分的に完了したインストールは起こりません。
 
-* The code is relatively concise and cohesive, making it easier to use
-  programmatically.
 
-* Packages don't have to be installed as egg archives, they can be installed
-  flat (while keeping the egg metadata).
+.. * Care is taken to present useful output on the console.
 
-* Native support for other version control systems (Git, Mercurial and Bazaar)
+* コンソール上に役に立つ出力が行われるよう注意を払っています。
 
-* Uninstallation of packages.
 
-* Simple to define fixed sets of requirements and reliably reproduce a
-  set of packages.
+.. * The reasons for actions are kept track of.  For instance, if a package is
+..   being installed, pip keeps track of why that package was required.
 
-pip doesn't do everything that easy_install does. Specifically:
+* 動作に対する理由が追跡されます。例えば、パッケージがインストールされ
+  ようとしているなら、 pip はそのパッケージが必要であった理由を追跡して
+  います。
 
-* It cannot install from eggs.  It only installs from source.  (In the
-  future it would be good if it could install binaries from Windows ``.exe``
-  or ``.msi`` -- binary install on other platforms is not a priority.)
 
-* It doesn't understand Setuptools extras (like ``package[test]``).  This should
-  be added eventually.
+.. * Error messages should be useful.
 
-* It is incompatible with some packages that extensively customize distutils
-  or setuptools in their ``setup.py`` files.
+* エラーメッセージが useful です。
 
-pip is complementary with `virtualenv
-<http://pypi.python.org/pypi/virtualenv>`__, and it is encouraged that you use
-virtualenv to isolate your installation.
 
-Community
----------
+.. * The code is relatively concise and cohesive, making it easier to use
+..   programmatically.
 
-The homepage for pip is at `pip-installer.org <http://www.pip-installer.org/>`_.
-Bugs can be filed in the `pip issue tracker
-<https://github.com/pypa/pip/issues/>`_.  Discussion happens on the
-`virtualenv email group
-<http://groups.google.com/group/python-virtualenv?hl=en>`_.
+* コードは比較的簡潔で、 cohesive (一貫性がある) です。それにより、プロ
+  グラムから使用するのがより簡単になります。
 
-Uninstall
----------
 
-pip is able to uninstall most installed packages with ``pip uninstall
-package-name``.
+.. * Packages don't have to be installed as egg archives, they can be installed
+..   flat (while keeping the egg metadata).
 
-Known exceptions include pure-distutils packages installed with
-``python setup.py install`` (such packages leave behind no metadata allowing
-determination of what files were installed), and script wrappers installed
-by develop-installs (``python setup.py develop``).
+* パッケージを egg アーカイブとしてインストールする必要はなく、フラットな状態で
+  インストールできます (egg のメタデータは保ったまま)。
 
-pip also performs an automatic uninstall of an old version of a package
-before upgrading to a newer version, so outdated files (and egg-info data)
-from conflicting versions aren't left hanging around to cause trouble. The
-old version of the package is automatically restored if the new version
-fails to download or install.
 
-.. _`requirements file`:
+.. * Native support for other version control systems (Git, Mercurial and Bazaar)
 
-Requirements Files
+* 他のバージョン管理システムのネイティブのサポート (Git, Mercurial, Bazaar)
+
+
+.. * Uninstallation of packages.
+
+* パッケージのアンインストール
+
+
+.. * Simple to define fixed sets of requirements and reliably reproduce a
+..   set of packages.
+
+* 固定された要件のセットを定義したり、パッケージのセットを reliably 再現
+  したりすることが簡単です。
+
+
+.. pip doesn't do everything that easy_install does. Specifically:
+
+pip は easy_install がすることの全てはしません。特に:
+
+
+.. * It cannot install from eggs.  It only installs from source.  (In the
+..   future it would be good if it could install binaries from Windows ``.exe``
+..   or ``.msi`` -- binary install on other platforms is not a priority.)
+
+* egg からインストールすることができません。ソースからインストールでき
+  るだけです。 (将来的に Windows ``.exe`` や ``.msi`` からバイナリをイ
+  ンストールできると良いでしょう -- 他のプラットホームでのバイナリイン
+  ストールは優先度が高くありません)
+
+
+.. * It doesn't understand Setuptools extras (like ``package[test]``).  This should
+..   be added eventually.
+
+* Setuptools の extras (``package[test]`` のような) を理解できません。
+  これはいずれ加えられる予定です。
+
+
+.. * It is incompatible with some packages that extensively customize distutils
+..   or setuptools in their ``setup.py`` files.
+
+* ``setup.py`` ファイルの中で distutils や setuptools を拡張している
+  いくつかのパッケージと非互換です。
+
+
+.. pip is complementary with `virtualenv
+.. <http://pypi.python.org/pypi/virtualenv>`_, and it is encouraged that you use
+.. virtualenv to isolate your installation.
+
+pip は `virtualenv <http://pypi.python.org/pypi/virtualenv>`_ と
+complementary (相補的) です。そして、インストールを隔離するために virtualenv
+を使用することは奨励されます。
+
+
+.. Community
+.. ---------
+
+コミュニティ
+------------
+
+
+.. The homepage for pip is at `pip-installer.org <http://www.pip-installer.org/>`_.
+.. Bugs can be filed in the `pip issue tracker
+.. <https://github.com/pypa/pip/issues/>`_.  Discussion happens on the
+.. `virtualenv email group
+.. <http://groups.google.com/group/python-virtualenv?hl=en>`_.
+
+pip のホームページは `pip-installer.org <http://www.pip-installer.org/>`_
+にあります。バグは `pip の課題トラッカー <https://github.com/pypa/pip/issues/>`_
+に報告できます。議論は `virtualenvメールグループ <http://groups.google.com/group/python-virtualenv?hl=en>`_
+で行われます。
+
+
+.. Uninstall
+.. ---------
+
+アンインストール
 ------------------
 
-When installing software, and Python packages in particular, it's common that
-you get a lot of libraries installed.  You just did ``easy_install MyPackage``
-and you get a dozen packages.  Each of these packages has its own version.
 
-Maybe you ran that installation and it works.  Great!  Will it keep working?
-Did you have to provide special options to get it to find everything?  Did you
-have to install a bunch of other optional pieces?  Most of all, will you be able
-to do it again?  Requirements files give you a way to create an *environment*:
-a *set* of packages that work together.
+.. pip is able to uninstall most installed packages with ``pip uninstall
+.. package-name``.
 
-If you've ever tried to setup an application on a new system, or with slightly
-updated pieces, and had it fail, pip requirements are for you.  If you
-haven't had this problem then you will eventually, so pip requirements are
-for you too -- requirements make explicit, repeatable installation of packages.
+pip はインストールされているほとんどのパッケージを ``pip uninstall
+package-name`` によってアンインストールできます。
 
-So what are requirements files?  They are very simple: lists of packages to
-install.  Instead of running something like ``pip MyApp`` and getting
-whatever libraries come along, you can create a requirements file something like::
+
+.. Known exceptions include pure-distutils packages installed with
+.. ``python setup.py install`` (such packages leave behind no metadata allowing
+.. determination of what files were installed), and script wrappers installed
+.. by develop-installs (``python setup.py develop``).
+
+既知の例外には、 ``python setup.py install`` でインストールされた純粋な
+distutils パッケージ (そのようなパッケージは、どんなファイルがインストー
+ルされたかを判断できるようなメタデータを全く残しません) や、開発モード
+(``python setup.py develop``) でインストールされたスクリプトラッパーが
+含まれます。
+
+
+.. pip also performs an automatic uninstall of an old version of a package
+.. before upgrading to a newer version, so outdated files (and egg-info data)
+.. from conflicting versions aren't left hanging around to cause trouble. The
+.. old version of the package is automatically restored if the new version
+.. fails to download or install.
+
+pip はまた、パッケージを新しいバージョンにアップグレードする前に、古い
+バージョンを自動的にアンインストールします。そのため衝突するバージョン
+からの outdated なファイル (そして、 egg-info データ)は left hanging
+around to cause trouble です。新しいバージョンのダウンロードやインストー
+ルに失敗した場合は、パッケージの古いバージョンは自動的に回復します。
+
+
+.. Requirements Files
+.. ------------------
+
+.. _requirements-file:
+
+要件ファイル (Requirements files)
+----------------------------------
+
+
+.. When installing software, and Python packages in particular, it's common that
+.. you get a lot of libraries installed.  You just did ``easy_install MyPackage``
+.. and you get a dozen packages.  Each of these packages has its own version.
+
+ソフトウェア、特に Python パッケージをインストールするとき、一般的に
+多数のライブラリをインストールすることになります。単に ``easy_install
+MyPackage`` を実行しただけで、多数のパッケージがインストールされます。
+これらのパッケージのそれぞれには、それ自身のバージョンがあります。
+
+
+.. Maybe you ran that installation and it works.  Great!  Will it keep working?
+.. Did you have to provide special options to get it to find everything?  Did you
+.. have to install a bunch of other optional pieces?  Most of all, will you be able
+.. to do it again?  Requirements files give you a way to create an *environment*:
+.. a *set* of packages that work together.
+
+それらのインストールを実行して、たぶん、それは動くでしょう。すばらしい!
+でもそれは動き続けるでしょうか? すべてのライブラリを見つけられるように、
+特別なオプションを渡す必要はありませんか?  他のたくさんのオプションの
+piece をインストールしなければなりませんでしたか?  特に、あなたは再びそ
+れができますか?  要件ファイルは *環境* を作成する方法をあなたに与えます:
+一緒に動くパッケージの *集合* です。
+
+
+.. If you've ever tried to setup an application on a new system, or with slightly
+.. updated pieces, and had it fail, pip requirements are for you.  If you
+.. haven't had this problem then you will eventually, so pip requirements are
+.. for you too -- requirements make explicit, repeatable installation of packages.
+
+今までに新しいシステム (またはわずかにアップデートされた piece) でアプ
+リケーションをセットアップしようとして失敗したことがあるなら、 pip の要
+件はあなたのためのものです。もしこの問題に出会ったことがなければ、いず
+れ出会うことになるでしょう。そのため pip の要件はやはりあなたのためのも
+のです。 -- 要件は、パッケージの明示的で繰り返し可能なインストールを生み
+出します。
+
+
+.. So what are requirements files?  They are very simple: lists of packages to
+.. install.  Instead of running something like ``pip MyApp`` and getting
+.. whatever libraries come along, you can create a requirements file something like:
+
+では要件ファイルとは何でしょうか?  それらは非常に簡単です: インストール
+するパッケージのリストです。 ``pip MyApp`` のようにして whatever
+libraries come along を得る代わりに、以下のように要件ファイルを作成でき
+ます:
+
+
+::
 
     MyApp
     Framework==0.9.4
     Library>=0.2
 
-Then, regardless of what MyApp lists in ``setup.py``, you'll get a
-specific version of Framework (0.9.4) and at least the 0.2 version of
-Library.  (You might think you could list these specific versions in
-MyApp's ``setup.py`` -- but if you do that you'll have to edit MyApp
-if you want to try a new version of Framework, or release a new
-version of MyApp if you determine that Library 0.3 doesn't work with
-your application.)  You can also add optional libraries and support
-tools that MyApp doesn't strictly require, giving people a set of
-recommended libraries.
 
-You can also include "editable" packages -- packages that are checked out from
-Subversion, Git, Mercurial and Bazaar.  These are just like using the ``-e``
-option to pip.  They look like::
+.. Then, regardless of what MyApp lists in ``setup.py``, you'll get a
+.. specific version of Framework (0.9.4) and at least the 0.2 version of
+.. Library.  (You might think you could list these specific versions in
+.. MyApp's ``setup.py`` -- but if you do that you'll have to edit MyApp
+.. if you want to try a new version of Framework, or release a new
+.. version of MyApp if you determine that Library 0.3 doesn't work with
+.. your application.)  You can also add optional libraries and support
+.. tools that MyApp doesn't strictly require, giving people a set of
+.. recommended libraries.
+
+すると、MyApp が ``setup.py`` に何をリストアップしているかにかかわらず、
+Framework の特定のバージョン (0.9.4) と Library の 0.2 以上のバージョン
+が得られます。 (これらの特定のバージョンを MyAppの ``setup.py`` に記載
+することができたと思うかもしれませんが、それをすると Library 0.3 があな
+たのアプリケーションで働かないと determine している場合に Framework の
+新しいバージョンを試したければ、 MyApp を編集するか、 MyApp の新しいバー
+ジョンをリリースしなければならないでしょう。) また、 MyApp が厳密には必
+要としないオプションのライブラリやサポートツールを加えることができます。
+人々に一揃いのお勧めのライブラリを与えるために。
+
+
+.. You can also include "editable" packages -- packages that are checked out from
+.. Subversion, Git, Mercurial and Bazaar.  These are just like using the ``-e``
+.. option to pip.  They look like:
+
+また、あなたは "編集可能な" パッケージを入れることができます --
+Subversion, Git, Mercurial, および Bazaar からチェックアウトされるパッケージ。
+これらは単に pip の ``-e`` オプションを使用します。このように:
+
+
+::
 
     -e svn+http://myrepo/svn/MyApp#egg=MyApp
 
-You have to start the URL with ``svn+`` (``git+``, ``hg+`` or ``bzr+``), and
-you have to include ``#egg=Package`` so pip knows what to expect at that URL.
-You can also include ``@rev`` in the URL, e.g., ``@275`` to check out
-revision 275.
 
-Requirement files are mostly *flat*.  Maybe ``MyApp`` requires
-``Framework``, and ``Framework`` requires ``Library``.  I encourage
-you to still list all these in a single requirement file; it is the
-nature of Python programs that there are implicit bindings *directly*
-between MyApp and Library.  For instance, Framework might expose one
-of Library's objects, and so if Library is updated it might directly
-break MyApp.  If that happens you can update the requirements file to
-force an earlier version of Library, and you can do that without
-having to re-release MyApp at all.
+.. You have to start the URL with ``svn+`` (``git+``, ``hg+`` or ``bzr+``), and
+.. you have to include ``#egg=Package`` so pip knows what to expect at that URL.
+.. You can also include ``@rev`` in the URL, e.g., ``@275`` to check out
+.. revision 275.
 
-Read the `requirements file format <http://pip.openplans.org/requirement-format.html>`_ to
-learn about other features.
+URL を ``svn+`` (``git+``, ``hg+`` or ``bzr+``) から始めて、
+``#egg=Package`` を含める必要があります。そうすると pip は、その URL で
+何を expect するかがわかります。また、リビジョン 275 をチェックアウトす
+るために URL に ``@rev`` を入れることができます。
 
-Freezing Requirements
----------------------
 
-So you have a working set of packages, and you want to be able to install them
-elsewhere.  `Requirements files`_ let you install exact versions, but it won't
-tell you what all the exact versions are.
+.. Requirement files are mostly *flat*.  Maybe ``MyApp`` requires
+.. ``Framework``, and ``Framework`` requires ``Library``.  I encourage
+.. you to still list all these in a single requirement file; it is the
+.. nature of Python programs that there are implicit bindings *directly*
+.. between MyApp and Library.  For instance, Framework might expose one
+.. of Library's objects, and so if Library is updated it might directly
+.. break MyApp.  If that happens you can update the requirements file to
+.. force an earlier version of Library, and you can do that without
+.. having to re-release MyApp at all.
 
-To create a new requirements file from a known working environment, use::
+要件ファイルはほとんど *flat* です。たぶん、 ``MyApp`` は
+``Framework`` を必要とします、そして、 ``Framework`` は ``Library`` を
+必要とします。私は、まだこれらをただ一つの要件ファイルにすべて記載する
+よう奨励します。 それは MyApp と Libray の間に *直接的な* 暗黙の結合が
+あるという Python プログラムの性質です。例えば、 Framework が Library
+のオブジェクトの1つを公開するかもしれないので、 Libray をアップデートす
+るなら、それは直接 MyApp を壊すかもしれません。もしそれが起こるなら、あ
+なたは、 Library の旧バージョンを強制するために要件ファイルをアップデー
+トできます、そして、 MyApp を再リリースする必要はありません。
+
+
+.. Read the `requirements file format <http://pip.openplans.org/requirement-format.html>`_ to
+.. learn about other features.
+
+他の特徴に関して学ぶために `要件ファイル形式
+<http://pip.openplans.org/requirement-format.html>`_ を読んでください。
+
+
+.. Freezing Requirements
+.. ---------------------
+
+要件の凍結
+----------
+
+
+.. So you have a working set of packages, and you want to be able to install them
+.. elsewhere.  `Requirements files`_ let you install exact versions, but it won't
+.. tell you what all the exact versions are.
+
+さて、あなたはパッケージのワーキングセットを持っていて、それらを他の場
+所にインストールできるようにしたいとします。  :ref:`requirements-file` は正確なバージョンをインストールすることができます
+が、すべての正確なバージョンが何であるかを教えてくれません。
+
+
+.. To create a new requirements file from a known working environment, use:
+
+既存の作業環境から新しい要件ファイルを作成するためには、以下のようにします:
+
+
+::
 
     $ pip freeze > stable-req.txt
 
-This will write a listing of *all* installed libraries to ``stable-req.txt``
-with exact versions for every library.  You may want to edit the file down after
-generating (e.g., to eliminate unnecessary libraries), but it'll give you a
-stable starting point for constructing your requirements file.
 
-You can also give it an existing requirements file, and it will use that as a
-sort of template for the new file.  So if you do::
+.. This will write a listing of *all* installed libraries to ``stable-req.txt``
+.. with exact versions for every library.  You may want to edit the file down after
+.. generating (e.g., to eliminate unnecessary libraries), but it'll give you a
+.. stable starting point for constructing your requirements file.
+
+これは、 *すべての* インストールされたライブラリのリストを正確なバージョン
+を付けて ``stable-req.txt`` に書き込みます。要件ファイルを生成した後に
+ファイルを編集したいと思うかもしれませんが (例えば不要なライブラリを排除
+するため)、これは要件ファイルを構成するための安定した出発点を与えるでしょう。
+
+
+.. You can also give it an existing requirements file, and it will use that as a
+.. sort of template for the new file.  So if you do:
+
+また、既存の要件ファイルを与えることもできます。そうすると、そのファイ
+ルは新しいファイルのための一種のテンプレートとして使用されます。例えば
+以下のようにすれば:
+
+
+::
 
     $ pip freeze -r devel-req.txt > stable-req.txt
 
-it will keep the packages listed in ``devel-req.txt`` in order and preserve
-comments.
 
-Bundles
--------
+.. it will keep the packages listed in ``devel-req.txt`` in order and preserve
+.. comments.
 
-Another way to distribute a set of libraries is a bundle format (specific to
-pip).  This format is not stable at this time (there simply hasn't been
-any feedback, nor a great deal of thought).  A bundle file contains all the
-source for your package, and you can have pip install them all together.
-Once you have the bundle file further network access won't be necessary.  To
-build a bundle file, do::
+``devel-req.txt`` に記載されたパッケージの順番は保存され、コメントは
+維持されます。
+
+
+.. Bundles
+.. -------
+
+バンドル
+--------
+
+
+.. Another way to distribute a set of libraries is a bundle format (specific to
+.. pip).  This format is not stable at this time (there simply hasn't been
+.. any feedback, nor a great deal of thought).  A bundle file contains all the
+.. source for your package, and you can have pip install them all together.
+.. Once you have the bundle file further network access won't be necessary.  To
+.. build a bundle file, do:
+
+1セットのライブラリを配布する別の方法は、バンドル形式です (これは pip
+に特有の形式です)。この形式は現在、安定していません (フィードバックはなく、
+great deal of thought もありません)。バンドルファイルにはパッケージの
+ためのすべてのソースが含まれています。そして、 pip にそれらを一斉に
+インストールさせることができます。バンドルファイルがあれば、ネットワーク
+アクセスは不要です。バンドルファイルをビルドするには、このようにして
+ください:
+
+
+::
 
     $ pip bundle MyApp.pybundle MyApp
 
-(Using a `requirements file`_ would be wise.)  Then someone else can get the
-file ``MyApp.pybundle`` and run::
+
+.. (Using a `requirements file`_ would be wise.)  Then someone else can get the
+.. file ``MyApp.pybundle`` and run::
+
+(:ref:`requirements-file` を使用するのが賢明でしょう。)
+次に、他の誰かが、 ``MyApp.pybundle`` というファイルを手に入れて、
+以下のコマンドを実行します:
+
+
+::
 
     $ pip install MyApp.pybundle
 
-This is *not* a binary format.  This only packages source.  If you have binary
-packages, then the person who installs the files will have to have a compiler,
-any necessary headers installed, etc.  Binary packages are hard, this is
-relatively easy.
 
-Using pip with virtualenv
--------------------------
+.. This is *not* a binary format.  This only packages source.  If you have binary
+.. packages, then the person who installs the files will have to have a compiler,
+.. any necessary headers installed, etc.  Binary packages are hard, this is
+.. relatively easy.
 
-pip is most nutritious when used with `virtualenv
-<http://pypi.python.org/pypi/virtualenv>`__.  One of the reasons pip
-doesn't install "multi-version" eggs is that virtualenv removes much of the need
-for it.  Because pip is installed by virtualenv, just use
-``path/to/my/environment/bin/pip`` to install things into that
-specific environment.
+これはバイナリフォーマットでは *ありません* 。これは単にソースをパッケー
+ジするだけです。バイナリパッケージがある場合、ファイルをインストールし
+ようとする人は、コンパイラや必要なヘッダーファイルをインストールして
+おかなければなりません。バイナリパッケージは困難 (hard) ですが、これは
+比較的簡単 (easy) です。
 
-To tell pip to only run if there is a virtualenv currently activated,
-and to bail if not, use::
+
+.. Using pip with virtualenv
+.. -------------------------
+
+virtualenv と共に pip を使う
+------------------------------
+
+
+.. pip is most nutritious when used with `virtualenv
+.. <http://pypi.python.org/pypi/virtualenv>`_.  One of the reasons pip
+.. doesn't install "multi-version" eggs is that virtualenv removes much of the need
+.. for it.  Because pip is installed by virtualenv, just use
+.. ``path/to/my/environment/bin/pip`` to install things into that
+.. specific environment.
+
+pip は `virtualenv <http://pypi.python.org/pypi/virtualenv>`_ と共に
+使用された時にとても nutritious になります。pip が「複数バージョン」の
+egg をインストールしない理由のうちの1つは、 virtualenv がその必要の多く
+を削除するということです。 pip は virtualenv によってインストールされる
+ので、その特定の環境へインストールするためには単に
+``path/to/my/environment/bin/pip`` を使用してください。
+
+
+.. To tell pip to only run if there is a virtualenv currently activated,
+.. and to bail if not, use:
+
+現在アクティブにされた virtualenv がある場合は pip を単に実行し、
+そうでなければ bail するには:
+
+
+::
 
     export PIP_REQUIRE_VIRTUALENV=true
 
-To tell pip to automatically use the currently active virtualenv::
+
+.. To tell pip to automatically use the currently active virtualenv:
+
+現在アクティブな virtualenv を自動的に使用するようにするには:
+
+
+::
 
     export PIP_RESPECT_VIRTUALENV=true
 
-Providing an environment with ``-E`` will be ignored.
 
-Using pip with virtualenvwrapper
----------------------------------
+.. Providing an environment with ``-E`` will be ignored.
 
-If you are using `virtualenvwrapper
-<http://www.doughellmann.com/projects/virtualenvwrapper/>`_, you might
-want pip to automatically create its virtualenvs in your
-``$WORKON_HOME``.
+このようにすると ``-E`` で環境を提供することは無視されます。
 
-You can tell pip to do so by defining ``PIP_VIRTUALENV_BASE`` in your
-environment and setting it to the same value as that of
-``$WORKON_HOME``.
 
-Do so by adding the line::
+.. Using pip with virtualenvwrapper
+.. ---------------------------------
+
+virtualenvwrapper と共に pip を使う
+----------------------------------------
+
+
+.. If you are using `virtualenvwrapper
+.. <http://www.doughellmann.com/projects/virtualenvwrapper/>`_, you might
+.. want pip to automatically create its virtualenvs in your
+.. ``$WORKON_HOME``.
+
+`virtualenvwrapper
+<http://www.doughellmann.com/projects/virtualenvwrapper/>`_ を使っていれば、
+pip が virtualenv を自動的に ``$WORKON_HOME`` の中に作成してほしいと思うでしょう。
+
+
+.. You can tell pip to do so by defining ``PIP_VIRTUALENV_BASE`` in your
+.. environment and setting it to the same value as that of
+.. ``$WORKON_HOME``.
+
+そのようにするには、環境変数 ``PIP_VIRTUALENV_BASE`` を定義して、
+その値を ``$WORKON_HOME`` と同じ値にします。
+
+
+.. Do so by adding the line:
+
+次のような一行を .bashrc の ``export WORKON_HOME`` の下に加えます:
+
+
+::
 
     export PIP_VIRTUALENV_BASE=$WORKON_HOME
 
-in your .bashrc under the line starting with ``export WORKON_HOME``.
 
-Using pip with buildout
------------------------
+.. in your .bashrc under the line starting with ``export WORKON_HOME``.
 
-If you are using `zc.buildout
-<http://pypi.python.org/pypi/zc.buildout>`_ you should look at
-`gp.recipe.pip <http://pypi.python.org/pypi/gp.recipe.pip>`_ as an
-option to use pip and virtualenv in your buildouts.
 
-Command line completion
------------------------
+.. Using pip with buildout
+.. -----------------------
 
-pip comes with support for command line completion in bash and zsh and
-allows you tab complete commands and options. To enable it you simply
-need copy the required shell script to the your shell startup file
-(e.g. ``.profile`` or ``.zprofile``) by running the special ``completion``
-command, e.g. for bash::
+buildout と共に pip を使う
+------------------------------
+
+
+.. If you are using `zc.buildout
+.. <http://pypi.python.org/pypi/zc.buildout>`_ you should look at
+.. `gp.recipe.pip <http://pypi.python.org/pypi/gp.recipe.pip>`_ as an
+.. option to use pip and virtualenv in your buildouts.
+
+`zc.buildout <http://pypi.python.org/pypi/zc.buildout>`_ を使用している
+場合は、 buildouts の中で pip と virtualenv を使用するオプションとして
+`gp.recipe.pip <http://pypi.python.org/pypi/gp.recipe.pip>`_ を見ると
+良いでしょう。
+
+
+.. Command line completion
+.. -----------------------
+
+コマンドライン補完
+--------------------
+
+
+.. pip comes with support for command line completion in bash and zsh and
+.. allows you tab complete commands and options. To enable it you simply
+.. need copy the required shell script to the your shell startup file
+.. (e.g. ``.profile`` or ``.zprofile``) by running the special ``completion``
+.. command, e.g. for bash:
+
+pip には bash と zsh のコマンドライン補完サポートが付属していて、それは
+タブ補完コマンドとオプションを提供します。この機能を有効にするためには、
+特別な ``completion`` コマンドを実行して、必要なシェルスクリプトを単に
+シェル初期化ファイル (e.g. ``.profile`` or ``.zprofile``) にコピーする
+だけです。たとえば bash の場合:
+
+
+::
 
     $ pip completion --bash >> ~/.profile
 
-And for zsh::
+
+.. And for zsh:
+
+zsh の場合:
+
+
+::
 
     $ pip completion --zsh >> ~/.zprofile
 
-Alternatively, you can use the result of the ``completion`` command
-directly with the eval function of you shell, e.g. by adding::
+
+.. Alternatively, you can use the result of the ``completion`` command
+.. directly with the eval function of you shell, e.g. by adding:
+
+あるいは、 ``completion`` コマンドの結果をシェルの eval 機能と共に直接
+使用することもできます。例えば、初期化ファイルに次のように付け加えるこ
+とによって:
+
+
+::
 
     eval "`pip completion --bash`"
 
-to your startup file.
 
-Searching for packages
-----------------------
+.. to your startup file.
 
-pip can search the `Python Package Index <http://pypi.python.org/pypi>`_ (PyPI)
-for packages using the ``pip search`` command. To search, run::
+
+.. Searching for packages
+.. ----------------------
+
+パッケージの検索
+--------------------
+
+
+.. pip can search the `Python Package Index <http://pypi.python.org/pypi>`_ (PyPI)
+.. for packages using the ``pip search`` command. To search, run:
+
+pip は ``pip search`` コマンドを使用して、 `Python Package Index
+<http://pypi.python.org/pypi>`_ (PyPI) からパッケージを検索することが
+できます。検索するために、以下のように実行します:
+
+::
 
     $ pip search "query"
 
-The query will be used to search the names and summaries of all packages
-indexed.
 
-pip searches http://pypi.python.org/pypi by default but alternative indexes
-can be searched by using the ``--index`` flag.
+.. The query will be used to search the names and summaries of all packages
+.. indexed.
 
-Mirror support
+クエリはインデックスされたすべてのパッケージの名前および要約を検索する
+ために使用されます。
+
+
+.. pip searches http://pypi.python.org/pypi by default but alternative indexes
+.. can be searched by using the ``--index`` flag.
+
+pip はデフォルトでは http://pypi.python.org/pypi を検索しますが、
+``--index`` フラグを使用して異なるインデックスを探索することもできます。
+
+
+.. Mirror support
+.. --------------
+
+ミラーサポート
 --------------
 
-The `PyPI mirroring infrastructure <http://pypi.python.org/mirrors>`_ as
-described in `PEP 381 <http://www.python.org/dev/peps/pep-0381/>`_ can be
-used by passing the ``--use-mirrors`` option to the install command.
-Alternatively, you can use the other ways to configure pip, e.g.::
+
+.. The `PyPI mirroring infrastructure <http://pypi.python.org/mirrors>`_ as
+.. described in `PEP 381 <http://www.python.org/dev/peps/pep-0381/>`_ can be
+.. used by passing the ``--use-mirrors`` option to the install command.
+.. Alternatively, you can use the other ways to configure pip, e.g.:
+
+`PEP 381 <http://www.python.org/dev/peps/pep-0381/>`_ で記述されている
+`PyPI ミラーリングインフラ <http://pypi.python.org/mirrors>`_ は
+install コマンドに ``--use-mirrors`` オプションを渡すことにより使用できます。
+または、 pip を設定する別の方法を使用することができます。例えば:
+
+
+
+::
 
     $ export PIP_USE_MIRRORS=true
 
-If enabled, pip will automatically query the DNS entry of the mirror index URL
-to find the list of mirrors to use. In case you want to override this list,
-please use the ``--mirrors`` option of the install command, or add to your pip
-configuration file::
+
+.. If enabled, pip will automatically query the DNS entry of the mirror index URL
+.. to find the list of mirrors to use. In case you want to override this list,
+.. please use the ``--mirrors`` option of the install command, or add to your pip
+.. configuration file:
+
+もし有効にされている場合、 pip は、使用するミラーのリストを見つけるため
+にミラーインデックス URL の DNS エントリーを自動的に検索します。この
+リストを無視したい場合、 install コマンドの ``--mirrors`` オプションを
+使用するか、あるいは pip 設定ファイルに以下の設定を加えてください:
+
+
+::
 
     [install]
     use-mirrors = true
